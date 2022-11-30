@@ -111,3 +111,34 @@ def read_excel_file_V1(data:sqlite3.Connection, file):
             cursor.execute(query)
         except IntegrityError as err:
             print(f"{err} : \n{row}")
+    # Lecture de l'onglet du fichier excel LesAgesSportifs, en interprétant toutes les colonnes comme des string
+    # pour construire uniformement la requête
+    df_agesportifs = pandas.read_excel(file, sheet_name='LesAgesSportifs', dtype=str)
+    df_agesportifs = df_agesportifs.where(pandas.notnull(df_agesportifs), 'null')
+
+    cursor = data.cursor()
+    for ix, row in df_agesportifs.iterrows():
+        try:
+            query = "insert into LesAgesSportifs values ({},{},{},{},{},{},{})".format(
+                row['numSp'], row['nomSp'], row['prenomSp'], row['pays'], row['categorieSp'], row['dateNaisSp'], row['ageSp'])
+            # On affiche la requête pour comprendre la construction. A enlever une fois compris.
+            print(query)
+            cursor.execute(query)
+        except IntegrityError as err:
+            print(f"{err} : \n{row}")
+
+    # Lecture de l'onglet du fichier excel LesNbsEquipiers, en interprétant toutes les colonnes comme des string
+    # pour construire uniformement la requête
+    df_nbequipiers = pandas.read_excel(file, sheet_name='LesNbsEquipiers', dtype=str)
+    df_nbequipiers = df_nbequipiers.where(pandas.notnull(df_nbequipiers), 'null')
+
+    cursor = data.cursor()
+    for ix, row in df_nbequipiers.iterrows():
+        try:
+            query = "insert into LesNbsEquipiers values ({},{})".format(
+                row['numEq'], row['nbEquipiersEq'])
+            # On affiche la requête pour comprendre la construction. A enlever une fois compris.
+            print(query)
+            cursor.execute(query)
+        except IntegrityError as err:
+            print(f"{err} : \n{row}")

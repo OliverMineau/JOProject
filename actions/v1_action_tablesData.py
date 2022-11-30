@@ -45,4 +45,6 @@ class AppTablesDataV1(QDialog):
 
         # DONE 1.3 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
         # TODO 1.4b : ajouter l'affichage des éléments de la vue LesAgesSportifs après l'avoir créée
+        self.refreshTable(self.ui.label_ages, self.ui.tableAgesSportifs, "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, strftime('%Y', 'now') + strftime('%j', 'now') / 365 - (strftime('%Y', dateNaisSp) + strftime('%j', dateNaisSp) / 365) AS ageSp FROM LesSportifsEQ")
         # TODO 1.5b : ajouter l'affichage des éléments de la vue LesNbsEquipiers après l'avoir créée
+        self.refreshTable(self.ui.label_nbsequipiers, self.ui.tableNbsEquipiers, "SELECT numEq, COUNT(numSp) AS nbEquipiersEq FROM LesSportifsEQ GROUP BY numEq")
