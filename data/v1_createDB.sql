@@ -56,11 +56,11 @@ CREATE TABLE LesResultats
   CONSTRAINT RS_CK2 CHECK (gold > 0),
   CONSTRAINT RS_CK3 CHECK (silver > 0),
   CONSTRAINT RS_CK4 CHECK (bronze > 0)
-)
+);
 
 -- TODO 1.4a : ajouter la définition de la vue LesAgesSportifs
 CREATE VIEW LesAgesSportifs AS
-SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, strftime('%Y', 'now') + strftime('%j', 'now') / 365 - (strftime('%Y', dateNaisSp) + strftime('%j', dateNaisSp) / 365) AS ageSp 
+SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, strftime('%Y', 'now') + strftime('%j', 'now') / 365 - (strftime('%Y', dateNaisSp) + strftime('%j', dateNaisSp) / 365) AS ageSp
 FROM LesSportifsEQ;
 -- TODO 1.5a : ajouter la définition de la vue LesNbsEquipiers
 CREATE VIEW LesNbsEquipiers AS

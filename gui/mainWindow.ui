@@ -930,6 +930,17 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>200</y>
+      <width>160</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3"/>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -937,7 +948,7 @@
      <x>0</x>
      <y>0</y>
      <width>710</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFiles">
@@ -1181,6 +1192,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_2_1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_interrogation_1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>519</x>
+     <y>641</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>605</x>
+     <y>630</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_interrogation_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>584</x>
+     <y>680</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>687</x>
+     <y>679</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createDBV0()</slot>
@@ -1196,5 +1239,7 @@
   <slot>insertDBV1()</slot>
   <slot>openDataV1()</slot>
   <slot>createTriggersDBV1()</slot>
+  <slot>open_fct_interrogation_1()</slot>
+  <slot>open_fct_interrogation_2()</slot>
  </slots>
 </ui>
