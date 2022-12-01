@@ -22,7 +22,47 @@ class AppFctInterrogation2Partie2(QDialog):
         try:
             cursor = self.data.cursor()
             result = cursor.execute("""
-
+                                    WITH Pays AS (
+                                        SELECT DISTINCT numSp AS num, pays
+                                        FROM LesSportifsEq
+                                        UNION ALL
+                                        SELECT DISTINCT numEq AS num, pays
+                                        FROM LesSportifsEq
+                                        WHERE numEq IS NOT NULL
+                                    ), 
+                                    PaysGold AS (
+                                        SELECT pays, COUNT(pays) AS gold
+                                        FROM Pays P JOIN LesResultats R ON (P.num=R.gold)
+                                        GROUP BY pays
+                                    ), 
+                                    PaysSilver AS (
+                                        SELECT pays, COUNT(pays) AS silver
+                                        FROM Pays P JOIN LesResultats R ON (P.num=R.silver)
+                                        GROUP BY pays
+                                    ), 
+                                    PaysBronze AS (
+                                        SELECT pays, COUNT(pays) AS bronze
+                                        FROM Pays P JOIN LesResultats R ON (P.num=R.bronze)
+                                        GROUP BY pays
+                                    ), 
+                                    Meds AS (
+                                        SELECT pays, gold, 0 AS silver, 0 AS bronze
+                                        FROM Pays P JOIN PaysGold USING(pays)
+                                        UNION ALL
+                                        SELECT pays, 0 AS gold, silver, 0 AS bronze
+                                        FROM Pays P JOIN PaysSilver USING(pays)
+                                        UNION ALL
+                                        SELECT pays, 0 AS gold, 0 AS silver, bronze
+                                        FROM Pays P JOIN PaysBronze USING(pays)
+                                    ), 
+                                    MedParPays AS (
+                                        SELECT pays, MAX(gold) AS gold, MAX(silver) AS silver, MAX(bronze) AS bronze
+                                        FROM Meds
+                                        GROUP BY pays
+                                    )
+                                    SELECT pays, gold, silver, bronze
+                                    FROM MedParPays
+                                    ORDER BY (gold+silver+bronze) DESC
                                     """)
         except Exception as e:
             self.ui.table_fct_interrogation_2.setRowCount(0)
