@@ -8,7 +8,7 @@ CREATE TABLE LesSportifsEQ
   categorieSp VARCHAR2(10),
   dateNaisSp DATE,
   numEq NUMBER(4),
-  CONSTRAINT SP_PK PRIMARY KEY (numSp),
+  CONSTRAINT SP_PK PRIMARY KEY (numSp,numEq),
   CONSTRAINT SP_FK FOREIGN KEY (numSp) REFERENCES LesInscriptions(numIn),
   CONSTRAINT SP_CK1 CHECK(numSp > 0),
   CONSTRAINT SP_CK2 CHECK(categorieSp IN ('feminin','masculin')),
@@ -60,11 +60,14 @@ CREATE TABLE LesResultats
 
 -- TODO 1.4a : ajouter la définition de la vue LesAgesSportifs
 CREATE VIEW LesAgesSportifs AS
-SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, strftime('%Y', 'now') + strftime('%j', 'now') / 365 - (strftime('%Y', dateNaisSp) + strftime('%j', dateNaisSp) / 365) AS ageSp
-FROM LesSportifsEQ;
+  SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, strftime('%Y', 'now') + strftime('%j', 'now') / 365 - (strftime('%Y', dateNaisSp) + strftime('%j', dateNaisSp) / 365) AS ageSp
+  FROM LesSportifsEQ;
+
 -- TODO 1.5a : ajouter la définition de la vue LesNbsEquipiers
 CREATE VIEW LesNbsEquipiers AS
-SELECT numEq, COUNT(numSp) AS nbEquipiersEq
-FROM LesSportifsEQ
-GROUP BY numEq;
+  SELECT numEq, COUNT(numSp) AS nbEquipiersEq
+  FROM LesSportifsEQ
+  GROUP BY numEq
+  HAVING numEq IS NOT NULL;
+
 -- TODO 3.3 : ajouter les éléments nécessaires pour créer le trigger (attention, syntaxe SQLite différent qu'Oracle)

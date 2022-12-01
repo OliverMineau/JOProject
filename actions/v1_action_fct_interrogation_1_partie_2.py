@@ -21,14 +21,14 @@ class AppFctInterrogation1Partie2(QDialog):
         display.refreshLabel(self.ui.label_fct_interrogation_1, "")
         try:
             cursor = self.data.cursor()
-            result = cursor.execute("""SELECT numEq, AVG(ageSp) AS ageMoyen 
-                                       FROM LesAgesSportifs A JOIN LesSportifsEQ S ON (A.numSp=S.numSp) JOIN LesNbsEquipiers E ON (S.numEq=E.numEq)
-                                       GROUP BY numEQ
-                                       HAVING numEq IN (SELECT gold
-		                                                FROM LesResultats)
-                                       LA REQUETE EST FAUSSE !!!!!!!!!!!!""")
+            result = cursor.execute("""
+                                    SELECT S.numEq, ROUND(AVG(A.ageSp),2) AS ageMoyen
+                                    FROM LesAgesSportifs A JOIN LesSportifsEQ S ON (A.numSp = S.numSp)
+                                    GROUP BY S.numEQ   
+                                    HAVING S.numEq IN ( SELECT gold FROM LesResultats)""")
         except Exception as e:
             self.ui.table_fct_interrogation_1.setRowCount(0)
             display.refreshLabel(self.ui.label_fct_interrogation_1, "Impossible d'afficher les résultats : " + repr(e))
+            print("Impossible d'afficher les résultats : " + repr(e))
         else:
             display.refreshGenericData(self.ui.table_fct_interrogation_1, result)

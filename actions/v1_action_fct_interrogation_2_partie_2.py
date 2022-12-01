@@ -21,7 +21,9 @@ class AppFctInterrogation2Partie2(QDialog):
         display.refreshLabel(self.ui.label_fct_interrogation_2, "")
         try:
             cursor = self.data.cursor()
-            result = cursor.execute("""             """)
+            result = cursor.execute("""
+
+                                    """)
         except Exception as e:
             self.ui.table_fct_interrogation_2.setRowCount(0)
             display.refreshLabel(self.ui.label_fct_interrogation_2, "Impossible d'afficher les résultats : " + repr(e))

@@ -38,13 +38,13 @@ class AppTablesDataV1(QDialog):
     def refreshAllTablesV1(self):
 
         self.refreshTable(self.ui.label_epreuves, self.ui.tableEpreuves, "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, nbSportifsEp, dateEp FROM LesEpreuves")
-        self.refreshTable(self.ui.label_sportifs, self.ui.tableSportifs, "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, numEq FROM LesSportifsEQ")
+        self.refreshTable(self.ui.label_sportifs, self.ui.tableSportifs, "SELECT * FROM LesSportifsEQ")
         
         self.refreshTable(self.ui.label_inscriptions, self.ui.tableInscriptions, "SELECT numIn, numEp FROM LesInscriptions")
         self.refreshTable(self.ui.label_resultats, self.ui.tableResultats, "SELECT numEp, gold, silver, bronze FROM LesResultats")
 
         # DONE 1.3 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
         # TODO 1.4b : ajouter l'affichage des éléments de la vue LesAgesSportifs après l'avoir créée
-        self.refreshTable(self.ui.label_ages, self.ui.tableAgesSportifs, "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, strftime('%Y', 'now') + strftime('%j', 'now') / 365 - (strftime('%Y', dateNaisSp) + strftime('%j', dateNaisSp) / 365) AS ageSp FROM LesSportifsEQ")
+        self.refreshTable(self.ui.label_agesSportifs, self.ui.tableAgesSportifs, "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, strftime('%Y', 'now') + strftime('%j', 'now') / 365 - (strftime('%Y', dateNaisSp) + strftime('%j', dateNaisSp) / 365) AS ageSp FROM LesSportifsEQ")
         # TODO 1.5b : ajouter l'affichage des éléments de la vue LesNbsEquipiers après l'avoir créée
-        self.refreshTable(self.ui.label_nbsequipiers, self.ui.tableNbsEquipiers, "SELECT numEq, COUNT(numSp) AS nbEquipiersEq FROM LesSportifsEQ GROUP BY numEq")
+        self.refreshTable(self.ui.label_nbsEquipiers, self.ui.tableNbsEquipiers, "SELECT numEq, COUNT(numSp) AS nbEquipiersEq FROM LesSportifsEQ GROUP BY numEq HAVING numEq IS NOT NULL")
