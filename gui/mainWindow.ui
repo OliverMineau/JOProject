@@ -574,7 +574,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_3_2">
        <property name="text">
-        <string>3.2 Gérer les résultats aux épreuves</string>
+        <string>Insérer les résultats d'une epreuve</string>
        </property>
       </widget>
      </item>
@@ -918,7 +918,7 @@
      <x>0</x>
      <y>0</y>
      <width>755</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFiles">

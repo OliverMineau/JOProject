@@ -267,7 +267,7 @@ class AppWindow(QMainWindow):
             self.fct_mod_2_dialog.close()
         self.fct_mod_2_dialog = AppFctMod2Partie3(self.data)
         self.fct_mod_2_dialog.show()
-        self.changedValue.connect(self.fct_mod_2_dialog.refreshResult)
+        self.changedValue.connect(self.fct_mod_2_dialog.insert_mod_2)
         
     def open_fct_mod_3(self):
         if self.fct_mod_3_dialog is not None:
