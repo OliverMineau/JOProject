@@ -36,11 +36,6 @@
      </attribute>
      <column>
       <property name="text">
-       <string>New Column</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
        <string>numSp</string>
       </property>
      </column>
@@ -62,6 +57,11 @@
      <column>
       <property name="text">
        <string>categorieSp</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>dateNaisSp</string>
       </property>
      </column>
      <column>
