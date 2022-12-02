@@ -193,7 +193,7 @@
     <property name="geometry">
      <rect>
       <x>12</x>
-      <y>690</y>
+      <y>750</y>
       <width>685</width>
       <height>16</height>
      </rect>
@@ -551,7 +551,7 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>630</y>
       <width>681</width>
       <height>32</height>
@@ -687,7 +687,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>660</y>
+      <y>720</y>
       <width>685</width>
       <height>31</height>
      </rect>
@@ -865,6 +865,51 @@
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3"/>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>670</y>
+      <width>681</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_partie_3_3">
+     <item>
+      <spacer name="horizontalSpacer_28">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3_3">
+       <property name="text">
+        <string>Modifier Sportifs</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_29">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -1181,6 +1226,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_3_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_mod_3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>452</x>
+     <y>708</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>550</x>
+     <y>702</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createDBV0()</slot>
@@ -1200,5 +1261,6 @@
   <slot>open_fct_interrogation_2()</slot>
   <slot>open_fct_mod_1()</slot>
   <slot>open_fct_mod_2()</slot>
+  <slot>open_fct_mod_3()</slot>
  </slots>
 </ui>

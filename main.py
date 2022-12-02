@@ -16,6 +16,7 @@ from actions.v1_action_fct_interrogation_1_partie_2 import AppFctInterrogation1P
 from actions.v1_action_fct_interrogation_2_partie_2 import AppFctInterrogation2Partie2
 from actions.v1_action_fct_mod_1_partie_3 import AppFctMod1Partie3
 from actions.v1_action_fct_mod_2_partie_3 import AppFctMod2Partie3
+from actions.v1_action_fct_mod_3_partie_3 import AppFctMod3Partie3
 
 # Classe utilisée pour lancer la fenêtre principale de l'application et définir ses actions
 class AppWindow(QMainWindow):
@@ -37,6 +38,7 @@ class AppWindow(QMainWindow):
     fct_interrogation_2_dialog = None
     fct_mod_1_dialog = None
     fct_mod_2_dialog = None
+    fct_mod_3_dialog = None
 
     # Constructeur
     def __init__(self):
@@ -266,6 +268,13 @@ class AppWindow(QMainWindow):
         self.fct_mod_2_dialog = AppFctMod2Partie3(self.data)
         self.fct_mod_2_dialog.show()
         self.changedValue.connect(self.fct_mod_2_dialog.refreshResult)
+        
+    def open_fct_mod_3(self):
+        if self.fct_mod_3_dialog is not None:
+            self.fct_mod_3_dialog.close()
+        self.fct_mod_3_dialog = AppFctMod3Partie3(self.data)
+        self.fct_mod_3_dialog.show()
+        self.changedValue.connect(self.fct_mod_3_dialog.refreshResult)
 
     ####################################################################################################################
     # Fonctions liées aux évènements (signal/slot/event)
@@ -298,6 +307,8 @@ class AppWindow(QMainWindow):
             self.fct_mod_1_dialog.close()
         if (self.fct_mod_2_dialog is not None):
             self.fct_mod_2_dialog.close()
+        if (self.fct_mod_3_dialog is not None):
+            self.fct_mod_3_dialog.close()
         # On ferme proprement la base de données
         self.data.close()
 
