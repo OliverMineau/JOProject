@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Paramètres des résultats aux épreuves</string>
+   <string>Insérer des résultats d'une épreuve</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -116,6 +116,43 @@
     </widget>
    </item>
    <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer_data_V1">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_data_V1">
+       <property name="text">
+        <string>Fermer</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2_data_V1">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
     <widget class="QLabel" name="label_fct_mod_2">
      <property name="text">
       <string/>
@@ -136,12 +173,28 @@
    <slot>insert_mod_2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>738</x>
-     <y>537</y>
+     <x>749</x>
+     <y>530</y>
     </hint>
     <hint type="destinationlabel">
      <x>758</x>
      <y>562</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_data_V1</sender>
+   <signal>clicked()</signal>
+   <receiver>fct_mod_2</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>475</x>
+     <y>555</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>580</x>
+     <y>561</y>
     </hint>
    </hints>
   </connection>
