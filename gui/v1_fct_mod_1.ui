@@ -88,6 +88,13 @@
      </property>
     </widget>
    </item>
+   <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Fermer</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>
@@ -99,12 +106,28 @@
    <slot>supprimer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>448</x>
-     <y>547</y>
+     <x>457</x>
+     <y>524</y>
     </hint>
     <hint type="destinationlabel">
      <x>586</x>
      <y>607</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>fct_mod_1</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>416</x>
+     <y>568</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>431</x>
+     <y>582</y>
     </hint>
    </hints>
   </connection>
