@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Paramètres des résultats aux épreuves</string>
+   <string>Insérer des résultats d'une épreuve</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -98,8 +98,8 @@
    <slot>insert_mod_2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>738</x>
-     <y>537</y>
+     <x>749</x>
+     <y>530</y>
     </hint>
     <hint type="destinationlabel">
      <x>758</x>

@@ -529,7 +529,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_3_1">
        <property name="text">
-        <string>Supprimer une epreuve</string>
+        <string>Supprimer une épreuve</string>
        </property>
       </widget>
      </item>
@@ -574,7 +574,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_3_2">
        <property name="text">
-        <string>Insérer les résultats d'une epreuve</string>
+        <string>Insérer les résultats d'une épreuve</string>
        </property>
       </widget>
      </item>
@@ -1169,8 +1169,8 @@
    <slot>open_fct_interrogation_1()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>592</x>
-     <y>529</y>
+     <x>556</x>
+     <y>535</y>
     </hint>
     <hint type="destinationlabel">
      <x>605</x>
@@ -1233,8 +1233,8 @@
    <slot>open_fct_mod_3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>452</x>
-     <y>708</y>
+     <x>411</x>
+     <y>725</y>
     </hint>
     <hint type="destinationlabel">
      <x>550</x>
